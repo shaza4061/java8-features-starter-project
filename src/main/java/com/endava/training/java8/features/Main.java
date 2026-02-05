@@ -25,16 +25,17 @@ public class Main {
         // These rules may change over time.
         //
         // Requirement:
-        //  Print names of active users
+        //  Print names of active users above 21
 
-        // User Defined Functional Interface
+        // Add Another Rule (Show Power)
 
         UserRule activeRule = u -> u.isActive();
+        UserRule adultRule = u -> u.getAge() > 21;
 
         users.stream()
                 .filter(u -> activeRule.test(u))
+                .filter(u -> adultRule.test(u))
                 .forEach(u -> System.out.println(u.getName()));
-
 
         System.out.println("Application started");
         System.out.println("Number of users: " + users.size());
