@@ -28,7 +28,7 @@ public class Main {
         // Requirement:
         //  Print names of active users above 21
 
-        // Replace Custom Interface with Predicate
+        // Introduce Stream Properly (WHY) - transformation
 
         Predicate<User> isActive = u -> u.isActive();
         Predicate<User> isAdult  = u -> u.getAge() > 21;
@@ -36,7 +36,9 @@ public class Main {
         users.stream()
                 .filter(isActive)
                 .filter(isAdult)
-                .forEach(u -> System.out.println(u.getName()));
+                .map(User::getName)
+                .forEach(System.out::println);
+
 
 
         System.out.println("Application started");
