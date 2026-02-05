@@ -27,12 +27,13 @@ public class Main {
         // Requirement:
         //  Print names of active users
 
-        // Introducing Lambda (Behaviour) - with stream
+        // User Defined Functional Interface
+
+        UserRule activeRule = u -> u.isActive();
 
         users.stream()
-                .filter(u -> u.isActive())
+                .filter(u -> activeRule.test(u))
                 .forEach(u -> System.out.println(u.getName()));
-
 
 
         System.out.println("Application started");
