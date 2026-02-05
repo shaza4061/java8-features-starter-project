@@ -26,9 +26,9 @@ public class Main {
         // These rules may change over time.
         //
         // Requirement:
-        //  Print names of active users above 21
+        //  Print names of active users above 21 with balance more than $1000
 
-        // Introduce Stream Properly (WHY) - transformation
+        // Final Business Requirement
 
         Predicate<User> isActive = u -> u.isActive();
         Predicate<User> isAdult  = u -> u.getAge() > 21;
@@ -36,8 +36,10 @@ public class Main {
         users.stream()
                 .filter(isActive)
                 .filter(isAdult)
-                .map(User::getName)
+                .filter(u -> u.getBalance() > 1000)
+                .map(u -> "Qualified user: " + u.getName())
                 .forEach(System.out::println);
+
 
 
 
