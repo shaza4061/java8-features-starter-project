@@ -25,12 +25,12 @@ public class Main {
         // These rules may change over time.
         //
         // Requirement:
-        //  Print names of active users
+        //  Print names of active users above 21
 
-        // Old Way (Create Pain)
+        // Add More Rules (Increase Pain)
 
         for (User u : users) {
-            if (u.isActive()) {
+            if (u.isActive() && u.getAge() > 21) {
                 System.out.println(u.getName());
             }
         }
