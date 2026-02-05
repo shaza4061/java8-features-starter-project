@@ -2,6 +2,7 @@ package com.endava.training.java8.features;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -27,15 +28,16 @@ public class Main {
         // Requirement:
         //  Print names of active users above 21
 
-        // Add Another Rule (Show Power)
+        // Replace Custom Interface with Predicate
 
-        UserRule activeRule = u -> u.isActive();
-        UserRule adultRule = u -> u.getAge() > 21;
+        Predicate<User> isActive = u -> u.isActive();
+        Predicate<User> isAdult  = u -> u.getAge() > 21;
 
         users.stream()
-                .filter(u -> activeRule.test(u))
-                .filter(u -> adultRule.test(u))
+                .filter(isActive)
+                .filter(isAdult)
                 .forEach(u -> System.out.println(u.getName()));
+
 
         System.out.println("Application started");
         System.out.println("Number of users: " + users.size());
