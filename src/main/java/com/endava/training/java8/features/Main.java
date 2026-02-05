@@ -24,10 +24,16 @@ public class Main {
         // The report should show only users that meet certain business rules.
         // These rules may change over time.
         //
-        // During the training, we will improve this code so that:
-        // - The business rules are easy to read
-        // - The rules are easy to change
-        // - The code explains WHAT it is doing, not HOW
+        // Requirement:
+        //  Print names of active users
+
+        // Old Way (Create Pain)
+
+        for (User u : users) {
+            if (u.isActive()) {
+                System.out.println(u.getName());
+            }
+        }
 
 
         System.out.println("Application started");
